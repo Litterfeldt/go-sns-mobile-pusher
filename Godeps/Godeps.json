@@ -1,0 +1,18 @@
+{
+	"ImportPath": "github.com/VideofyMe/go-push-handler",
+	"GoVersion": "go1.3.3",
+	"Deps": [
+		{
+			"ImportPath": "github.com/crowdmob/goamz/aws",
+			"Rev": "5a7c2838e1b9cb00273c1947dd9b4a59148eb5cd"
+		},
+		{
+			"ImportPath": "github.com/crowdmob/goamz/sns",
+			"Rev": "5a7c2838e1b9cb00273c1947dd9b4a59148eb5cd"
+		},
+		{
+			"ImportPath": "gopkg.in/mgo.v2",
+			"Rev": "231ce7e0549b5ce60d35ed805bff505cab7098e4"
+		}
+	]
+}
