@@ -6,7 +6,7 @@ import (
 )
 
 type Message struct {
-	UserId      string
+	PushToken   string
 	Text        string
 	Url         string
 	UnreadCount string

@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/VideofyMe/go-push-handler/api"
-	"github.com/VideofyMe/go-push-handler/pusher"
+	"github.com/litterfeldt/go-sns-mobile-pusher/api"
+	"github.com/litterfeldt/go-sns-mobile-pusher/pusher"
 	"os"
 	"strconv"
 )

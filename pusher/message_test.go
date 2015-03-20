@@ -3,7 +3,7 @@ package pusher_test
 import (
 	"bytes"
 	js "encoding/json"
-	. "github.com/VideofyMe/go-push-handler/pusher"
+	. "github.com/litterfeldt/go-sns-mobile-pusher/pusher"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
 )

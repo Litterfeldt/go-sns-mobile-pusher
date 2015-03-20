@@ -32,8 +32,7 @@ func (w Worker) Start() {
 
 			select {
 			case message := <-w.Work:
-				_, err := pushr.PushJSON(message.UserId, message.ToJson())
-
+				_, err := pushr.Push(message)
 				if err != nil {
 					w.Log(err)
 				} else {

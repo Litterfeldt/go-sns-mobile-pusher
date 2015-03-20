@@ -36,7 +36,7 @@ func New() (s *SNS) {
 	return
 }
 
-func (s *SNS) AddEndpoint(push_token, user_id, device_brand string) (endpoint_arn string, err error) {
+func (s *SNS) AddEndpoint(push_token, device_brand string) (endpoint_arn string, err error) {
 	var device_arn string
 
 	if device_brand == "iphone" {
@@ -49,8 +49,7 @@ func (s *SNS) AddEndpoint(push_token, user_id, device_brand string) (endpoint_ar
 
 	opt := &sns.PlatformEndpointOptions{
 		PlatformApplicationArn: device_arn,
-		CustomUserData:         user_id,
-		Token:                  push_token,
+		Token: push_token,
 	}
 	res, err := s.Sns.CreatePlatformEndpoint(opt)
 	if err != nil {

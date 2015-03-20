@@ -2,16 +2,15 @@ package api
 
 import (
 	"encoding/json"
-	p "github.com/VideofyMe/go-push-handler/pusher"
+	p "github.com/litterfeldt/go-sns-mobile-pusher/pusher"
 	"log"
 	"net/http"
-	"time"
 )
 
 type Message struct {
+	PushToken   string `json:"push_token"`
 	Message     string `json:"message"`
 	Url         string `json:"url"`
-	UserId      string `json:"user_id"`
 	UnreadCount string `json:"unread_count"`
 }
 
@@ -23,10 +22,8 @@ func send(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	time.Sleep(10 * time.Millisecond)
-
 	p.WorkQueue <- p.Message{
-		UserId:      m.UserId,
+		PushToken:   m.PushToken,
 		Text:        m.Message,
 		Url:         m.Url,
 		UnreadCount: m.UnreadCount,

@@ -1,7 +1,7 @@
 package api
 
 import (
-	p "github.com/VideofyMe/go-push-handler/pusher"
+	p "github.com/litterfeldt/go-sns-mobile-pusher/pusher"
 	"log"
 	"net/http"
 	"os"
@@ -15,8 +15,6 @@ func Start() {
 	pusher = p.New()
 	http.HandleFunc("/status", auth(status_handler))
 	http.HandleFunc("/send", auth(send_handler))
-	http.HandleFunc("/device", auth(device_handler))
-	http.HandleFunc("/failed-to-send", fail_handler)
 
 	err := http.ListenAndServe(":"+os.Getenv("PORT"), nil)
 	if err != nil {
@@ -49,24 +47,6 @@ func status_handler(w http.ResponseWriter, r *http.Request) {
 func send_handler(w http.ResponseWriter, r *http.Request) {
 	if r.Method == "POST" {
 		send(w, r)
-	} else {
-		not_found(&w, nil)
-	}
-}
-
-func device_handler(w http.ResponseWriter, r *http.Request) {
-	if r.Method == "POST" {
-		create_device(w, r)
-	} else if r.Method == "DELETE" {
-		delete_device(w, r)
-	} else {
-		not_found(&w, nil)
-	}
-}
-
-func fail_handler(w http.ResponseWriter, r *http.Request) {
-	if r.Method == "POST" {
-		fail_send(w, r)
 	} else {
 		not_found(&w, nil)
 	}
