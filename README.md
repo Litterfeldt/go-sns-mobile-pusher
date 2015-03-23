@@ -38,8 +38,11 @@ The app comes with a rest API that take http operations.
 
 ##Send push to a device
 POST `http://<url>/send`
+
 Header: `Auth-Token: <Token>`
+
 Body:
+
 ```javascript
 {
   "push_token": "<push_token>",
@@ -49,7 +52,9 @@ Body:
 }
 ```
 Returns:
+
 Status: 200
+
 ```javascript
 { }
 ```
@@ -57,8 +62,11 @@ Status: 200
 
 ##Status
 GET `http://<url>/status`
+
 Header: `Auth-Token: <Token>`
+
 Returns:
+
 ```javascript
 {
   "jobs_in_queue": 0,
