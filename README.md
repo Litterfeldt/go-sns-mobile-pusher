@@ -34,7 +34,7 @@ Now push the repo to that Heroku app. Ready to go.
 The worker environment variable dictates how many workers the process will start up.
 Every request is received and cached in an in-memory queue that the workers read from. The more workers the faster the queue will be emptied. This gives the opportunity to handle surges in traffic without slowing down the rest of the stack. The limit for the queue is set to a high value and until that value is reached inbound requests will not be blocked. The amount of workers you should use should be proportionate to how much CPU, memory and network bandwidth is available for the process. Arbitrarily any number from 1-10 should be safe on most machines, including Heroku 1x dynos, any number higher should be load-tested before being run in production.
 #Usage
-The app comes with a rest API that take http operations.
+The app comes with a rest API that take http operations. Check the examples folder for code.
 
 ##Send push to a device
 POST `http://<url>/send`
