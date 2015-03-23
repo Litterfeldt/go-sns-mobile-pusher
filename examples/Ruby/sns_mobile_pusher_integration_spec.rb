@@ -20,6 +20,10 @@ describe Integration::SNSMobilePusher do
 
       it { is_expected.to be false }
     end
+
+    context 'when exception' do
+      it { is_expected.to be nil }
+    end
   end
 
   def mock_request(method, url, body, &block)

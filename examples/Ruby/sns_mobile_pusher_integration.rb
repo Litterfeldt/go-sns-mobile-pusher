@@ -1,9 +1,6 @@
 module Integration
   class SNSMobilePusher
     class << self
-      # Returns true if push queued successfully
-      # Returns false if http error from pusher
-      # Returns nil if Ruby error
       def push(params)
         success? Excon.post(
           "#{ENV['PUSHER_URL']}/send",
